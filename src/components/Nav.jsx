@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Logo from "../img/logo1.png";
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,8 +10,8 @@ const Nav = () => {
 
   return (
     <nav className={`navbar ${menuOpen ? "open" : ""}`}>
-      <a href="/" className="logo">
-        <img src="" alt="logo" />
+      <a href="/">
+        <img src={Logo} alt="logo" className="logo" />
       </a>
 
       {/* mobile nav */}

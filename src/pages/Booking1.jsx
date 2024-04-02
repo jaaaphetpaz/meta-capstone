@@ -1,11 +1,8 @@
 import React from "react";
+import BookingFormTemplate from "../components/BookingFormTemplate";
 
 const Booking1 = () => {
-  return (
-    <div>
-      <h1>BOOKING SECTION</h1>
-    </div>
-  );
+  return <BookingFormTemplate />;
 };
 
 export default Booking1;

@@ -142,7 +142,68 @@ button:hover {
 
 /* HEADER TRY */
 
-form,
+/* FORM SECTION TRY ----------------------------------*/
+#booking_form {
+  width: 90vw;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+fieldset {
+  border: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  border-color: #dc3545 !important;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* FORM SECTION TRY */
+
+/* form,
 .comfirm {
   padding: 10px 13%;
 }
@@ -179,7 +240,7 @@ label {
 
 .comfirm span {
   color: blue;
-}
+} */
 
 /* menu items */
 
@@ -260,6 +321,52 @@ label {
 }
 
 /* MENU UPDATE CSS */
+
+/* ABOUT SECTION---------------------- */
+#about {
+  background-color: #495e57;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-about {
+  width: 100%;
+  justify-content: space-around;
+}
+
+.banner-about h3 {
+  font-size: 2.75rem;
+}
+.banner-about h4 {
+  font-size: 2rem;
+}
+
+.banner-about ul {
+  font-size: 1.25rem;
+}
+
+.banner__content-about {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-container {
+  max-width: 1200px;
+  width: 100%;
+}
+.about-title {
+  font-size: 3rem;
+  margin: 10px 0 10px 0;
+  color: #f4ce14;
+}
+
+.about-btn {
+  margin: 10px 10px;
+}
+/* ABOUT SECTION---------------------- */
 
 footer {
   display: flex;

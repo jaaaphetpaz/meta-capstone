@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { fetchAPI, submitAPI } from "../api";
+import { useNavigate } from "react-router-dom";
 
 const BookingFormTemplate = () => {
   const [firstName, setFirstName] = useState("");
@@ -6,12 +8,22 @@ const BookingFormTemplate = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const [occasion, setOccasion] = useState("");
   const [timeSlot, setTimeSlot] = useState("");
+  const [numberOfGuests, setNumberOfGuests] = useState("");
+  const [availableTimes, setAvailableTimes] = useState([]);
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (selectedDate) {
+      const date = new Date(selectedDate);
+      const slots = fetchAPI(date);
+      setAvailableTimes(slots);
+    }
+  }, [selectedDate]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Perform validation
     const errors = {};
     if (!firstName) {
       errors.firstName = "First name is required";
@@ -28,6 +40,9 @@ const BookingFormTemplate = () => {
     if (!timeSlot) {
       errors.timeSlot = "Time slot is required";
     }
+    if (!numberOfGuests) {
+      errors.numberOfGuests = "Number of Guests is required";
+    }
 
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
@@ -42,6 +57,13 @@ const BookingFormTemplate = () => {
       occasion,
       timeSlot,
     });
+
+    const formData = { firstName, lastName, selectedDate, occasion, timeSlot };
+    const isSubmitted = submitAPI(formData);
+
+    if (isSubmitted) {
+      navigate("/confirmed");
+    }
 
     // Here you can submit the form data to the server
   };
@@ -94,6 +116,20 @@ const BookingFormTemplate = () => {
             )}
           </div>
           <div>
+            <label htmlFor="number-of-guests">Number of Guests</label>
+            <input
+              type="number"
+              id="number-of-guests"
+              value={numberOfGuests}
+              min={1}
+              max={10}
+              onChange={(e) => setNumberOfGuests(e.target.value)}
+            />
+            {errors.numberOfGuests && (
+              <div className="error-message">{errors.numberOfGuests}</div>
+            )}
+          </div>
+          <div>
             <label htmlFor="book-date">Choose Date</label>
             <input
               type="date"
@@ -116,10 +152,11 @@ const BookingFormTemplate = () => {
               className={errors.timeSlot ? "error" : ""}
             >
               <option value="">Select a time slot</option>
-              <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
-              <option value="afternoon">Afternoon (12:00 PM - 3:00 PM)</option>
-              <option value="evening">Evening (3:00 PM - 6:00 PM)</option>
-              <option value="night">Night (6:00 PM - 9:00 PM)</option>
+              {availableTimes.map((slot, index) => (
+                <option key={index} value={slot}>
+                  {slot}
+                </option>
+              ))}
             </select>
             {errors.timeSlot && (
               <div className="error-message">{errors.timeSlot}</div>

@@ -16,7 +16,7 @@ const Hero = () => {
               voluptates labore voluptatem sequi dolores quaerat maiores.
               Nostrum dolorum consequuntur animi at officia.
             </p>
-            <Link to={"/booking1"}>
+            <Link to={"/booking"}>
               <button aria-label="On Click">Reserve Table</button>
             </Link>
           </div>

@@ -235,45 +235,6 @@ input[type="submit"]:hover {
 
 /* CONFIRMED BOOKING TRY------------------ */
 
-/* form,
-.comfirm {
-  padding: 10px 13%;
-}
-
-.formField {
-  padding: 50px 20px;
-}
-
-input,
-label {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-#book-date,
-#book-time,
-#book-guests,
-#book-occasion {
-  background: #bdbdbd43;
-  padding: 8px 24px;
-  border: none;
-  outline: none;
-  border-radius: 2px;
-}
-
-.btnReceive input {
-  padding: 12px 16px;
-  margin-top: 20px;
-  background: #495e57;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-}
-
-.comfirm span {
-  color: blue;
-} */
-
 /* menu items */
 
 #menu {
@@ -400,6 +361,34 @@ label {
 }
 /* ABOUT SECTION---------------------- */
 
+/* FOOTER------------------------------------------------------ */
+.footer-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.social-icons li:last-child {
+  margin-right: 0;
+}
+
+.social-icons a {
+  color: white;
+}
+
+/* FOOTER------------------------------------------------------ */
+
 footer {
   display: flex;
   justify-content: center;
@@ -411,6 +400,7 @@ footer {
 
 .footer-logo {
   height: 80px;
+  margin: 10px 0 20px 0;
 }
 
 .footer-text {

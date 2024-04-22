@@ -1,6 +1,5 @@
 import React from "react";
 import Banner from "../img/banner2.jpg";
-import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -9,7 +8,6 @@ const About = () => {
         <h2 className="about-title">Operation Hours</h2>
         <div className="banner banner-about">
           <div className="banner__content banner__content-about">
-            {/* <h3>Operation Hours</h3> */}
             <div>
               <h4>Monday - Friday</h4>
               <ul>
